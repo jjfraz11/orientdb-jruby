@@ -36,27 +36,27 @@ describe "OrientDB" do
       create_classes
 
       @h_fields = {:sku => 'H509', :title => "Hammer", :price => 3.25}
-      @hammer   = OrientDB::Document.create DB, @product_class.name, @h_fields
+      @hammer   = OrientDB::Document.create @product_class.name, @h_fields
 
       @n_fields = {:sku => 'N034', :title => "Nail", :price => 0.25}
-      @nail     = OrientDB::Document.create DB, @product_class.name, @n_fields
+      @nail     = OrientDB::Document.create @product_class.name, @n_fields
 
-      @line1    = OrientDB::Document.create DB, @line_class.name,
+      @line1    = OrientDB::Document.create @line_class.name,
                                             :product  => @hammer,
                                             :quantity => 1,
                                             :price    => @hammer.price
-      @line2    = OrientDB::Document.create DB, @line_class.name,
+      @line2    = OrientDB::Document.create @line_class.name,
                                             :product  => @nail,
                                             :quantity => 10,
                                             :price    => @nail.price
       @lines    = [@line1, @line2]
       @total    = @lines.inject(0.0) { |a, x| a + x.price * x.quantity }
 
-      @customer = OrientDB::Document.create DB, @customer_class.name,
+      @customer = OrientDB::Document.create @customer_class.name,
                                             :name => "Mark Dumber",
                                             :tab  => 500.00
 
-      @invoice  = OrientDB::Document.create DB, @invoice_class.name,
+      @invoice  = OrientDB::Document.create @invoice_class.name,
                                             :number   => 10001,
                                             :customer => @customer,
                                             :total    => @total.to_s,
@@ -65,7 +65,7 @@ describe "OrientDB" do
     end
 
     it "should instantiate new documents" do
-      @screw = OrientDB::Document.new DB, @product_class.name, :sku => "S365", :price => 0.33
+      @screw = OrientDB::Document.new @product_class.name, :sku => "S365", :price => 0.33
       @screw.should be_a_kind_of OrientDB::Document
     end
 

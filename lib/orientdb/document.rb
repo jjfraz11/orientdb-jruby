@@ -57,7 +57,7 @@ module OrientDB
 
       alias_method :native_new, :new
 
-      def new(db, klass_name, fields = {})
+      def new(klass_name, fields = {})
         obj = native_new klass_name.to_s
         fields.each do |name, value|
           obj.field name.to_s, value
@@ -65,8 +65,8 @@ module OrientDB
         obj
       end
 
-      def create(db, klass_name, fields = {})
-        obj = new db, klass_name, fields
+      def create(klass_name, fields = {})
+        obj = new klass_name, fields
         obj.save
         obj
       end

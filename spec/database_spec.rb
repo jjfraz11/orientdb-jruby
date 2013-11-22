@@ -55,11 +55,11 @@ describe "OrientDB" do
         create_classes
 
         @oclass    = @employee_class.name
-        @e1        = OrientDB::Document.create DB, @oclass, :name => "Mark", :age => 36, :groups => %w{admin sales}
-        @e2        = OrientDB::Document.create DB, @oclass, :name => "John", :age => 37, :groups => %w{admin tech}
-        @e3        = OrientDB::Document.create DB, @oclass, :name => "Luke", :age => 38, :groups => %w{tech support}
-        @e4        = OrientDB::Document.create DB, @oclass, :name => "Matt", :age => 39, :groups => %w{admin office}
-        @e5        = OrientDB::Document.create DB, @oclass, :name => "Pete", :age => 40, :groups => %w{vp office}
+        @e1        = OrientDB::Document.create @oclass, :name => "Mark", :age => 36, :groups => %w{admin sales}
+        @e2        = OrientDB::Document.create @oclass, :name => "John", :age => 37, :groups => %w{admin tech}
+        @e3        = OrientDB::Document.create @oclass, :name => "Luke", :age => 38, :groups => %w{tech support}
+        @e4        = OrientDB::Document.create @oclass, :name => "Matt", :age => 39, :groups => %w{admin office}
+        @e5        = OrientDB::Document.create @oclass, :name => "Pete", :age => 40, :groups => %w{vp office}
         @employees = [@e1, @e2, @e3, @e4, @e5]
       end
 
