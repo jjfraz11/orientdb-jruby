@@ -58,7 +58,7 @@ module OrientDB
       alias_method :native_new, :new
 
       def new(db, klass_name, fields = {})
-        obj = native_new db, klass_name.to_s
+        obj = native_new db, klass_name.to_s.to_java(:string)
         fields.each do |name, value|
           obj.field name.to_s, value
         end
