@@ -24,6 +24,7 @@ module OrientDB
   SQLSynchQuery          = CORE.sql.query.OSQLSynchQuery
   User                   = CORE.metadata.security.OUser
   RemoteStorage          = CLIENT.remote.OStorageRemote
+  ServerAdmin            = CLIENT::remote::OServerAdmin
 
   #Blueprints
   BLUEPRINTS = com.tinkerpop.blueprints
